@@ -29,7 +29,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
-Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' } 
+" Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' } 
 Plug 'vim-airline/vim-airline'  
 Plug 'folke/lsp-colors.nvim'
 Plug 'numToStr/Comment.nvim'
