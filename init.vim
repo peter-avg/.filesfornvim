@@ -33,6 +33,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'  
 Plug 'folke/lsp-colors.nvim'
 Plug 'numToStr/Comment.nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
