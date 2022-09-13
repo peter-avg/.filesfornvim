@@ -34,6 +34,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'folke/lsp-colors.nvim'
 Plug 'numToStr/Comment.nvim'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 call plug#end()
 
