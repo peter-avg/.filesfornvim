@@ -58,7 +58,7 @@ require'lspconfig'.pyre.setup{}
 require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
-require("toggleterm").setup{}
+require("toggleterm").setup{shade_terminals = false}
 local cmp = require "cmp"
 
 cmp.setup {
