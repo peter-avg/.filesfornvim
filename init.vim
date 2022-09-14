@@ -29,11 +29,11 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
-" Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' } 
+Plug 'https://github.com/preservim/nerdtree', { 'on': 'NERDTreeToggle' } 
 Plug 'vim-airline/vim-airline'  
 Plug 'folke/lsp-colors.nvim'
 Plug 'numToStr/Comment.nvim'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
@@ -58,7 +58,14 @@ require'lspconfig'.pyre.setup{}
 require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
-require("toggleterm").setup{shade_terminals = false}
+require("toggleterm").setup{
+direction=vertical,
+size=40,
+hide_numbers=true,
+shade_terminals = true,
+shading_factor = '1'
+}
+
 local cmp = require "cmp"
 
 cmp.setup {
