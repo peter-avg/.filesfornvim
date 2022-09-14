@@ -59,11 +59,12 @@ require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
 require("toggleterm").setup{
-direction=vertical,
 size=40,
+open_mapping=[[<c-\>]],
 hide_numbers=true,
 shade_terminals = true,
-shading_factor = '1'
+shading_factor = '1',
+direction=vertical,
 }
 
 local cmp = require "cmp"
