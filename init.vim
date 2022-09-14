@@ -18,8 +18,8 @@ set showmatch
 let python_highlight_all=1 
 syntax on 
 set laststatus=2 
- 
 set nocompatible 
+
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -35,21 +35,20 @@ Plug 'vim-airline/vim-airline'
 Plug 'numToStr/Comment.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 
-
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-let g:gruvbox_italic=1
-let g:gruvbox_underline=0
+let g:gruvbox_italic='1'
+let g:gruvbox_termcolors='256'
+let g:gruvbox_italic='1'
+let g:gruvbox_underline='0'
 set bg=dark
-let g:gruvbox_transparent_bg=1
+let g:gruvbox_transparent_bg='1'
 set encoding=utf-8
 colorscheme gruvbox
-hi Normal ctermbg=none
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+hi NonText ctermbg=NONE
+hi Normal ctermbg=none guibg =none
 
 lua <<EOF
 require'lspconfig'.clangd.setup{}
