@@ -34,7 +34,7 @@ Plug 'vim-airline/vim-airline'
 " Plug 'folke/lsp-colors.nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
@@ -49,6 +49,7 @@ let g:gruvbox_transparent_bg=1
 set encoding=utf-8
 colorscheme gruvbox
 hi Normal ctermbg=none
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 lua <<EOF
 require'lspconfig'.clangd.setup{}
@@ -65,7 +66,7 @@ require("toggleterm").setup{
   shade_filetypes = {},
   autochdir = false,
   shade_terminals = true, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
-  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
@@ -75,12 +76,6 @@ require("toggleterm").setup{
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   auto_scroll = true,
-  winbar = {
-    enabled = false,
-    name_formatter = function(term) --  term: Terminal
-      return term.name
-    end
-  },
 }
 
 local cmp = require "cmp"
