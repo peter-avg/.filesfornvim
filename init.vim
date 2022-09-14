@@ -58,6 +58,7 @@ require'lspconfig'.pyre.setup{}
 require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
+require("toggleterm").setup{}
 local cmp = require "cmp"
 
 cmp.setup {
