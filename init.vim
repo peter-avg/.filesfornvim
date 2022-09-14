@@ -39,12 +39,14 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 
-let g:gruvbox_italic='1'
-let g:gruvbox_termcolors='256'
-let g:gruvbox_italic='1'
-let g:gruvbox_underline='0'
+let g:airline_power_fonts=2
+let g:airline_themes_base16_constant = 1
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=256
+let g:gruvbox_italic=1
+let g:gruvbox_underline=0
 set bg=dark
-let g:gruvbox_transparent_bg='1'
+let g:gruvbox_transparent_bg=1
 set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
