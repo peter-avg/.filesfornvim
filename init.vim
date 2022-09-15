@@ -39,19 +39,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 call plug#end()
 
-let g:airline_power_fonts=2
-let g:airline_themes_base16_constant = 1
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-let g:gruvbox_italic=1
-let g:gruvbox_underline=0
-set bg=dark
-let g:gruvbox_transparent_bg=1
-set encoding=utf-8
-colorscheme gruvbox
-hi NonText ctermbg=NONE
-hi Normal ctermbg=none guibg =none
-
 lua <<EOF
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.java_language_server.setup{}
@@ -130,3 +117,39 @@ local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 EOF
+
+highlight clear CursorLine
+highlight Normal ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight NonText ctermbg=none
+highlight SpecialKey ctermbg=none
+highlight VertSplit ctermbg=none
+highlight SignColumn ctermbg=none
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
+highlight clear LineNr
+highlight clear SignColumn
+highlight clear StatusLine
+
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * set nocursorline
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * set nocursorline
+let g:airline_power_fonts=2
+let g:airline_themes_base16_constant = 1
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=256
+let g:gruvbox_italic=1
+let g:gruvbox_underline=0
+set bg=dark
+let g:gruvbox_transparent_bg=1
+set encoding=utf-8
+colorscheme gruvbox
+hi NonText ctermbg=NONE
+hi Normal ctermbg=none guibg =none
