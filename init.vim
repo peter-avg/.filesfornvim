@@ -48,8 +48,8 @@ require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
 require("toggleterm").setup{
-  size = 40, 
-  open_mapping = [[<c-\>]],
+  size = 40,
+  open_mapping = [[<leader>\]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   autochdir = false,
@@ -116,6 +116,8 @@ cmp.setup {
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
+
+require "user.keymaps"
 EOF
 
 highlight clear CursorLine
@@ -153,3 +155,5 @@ set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
+
+
