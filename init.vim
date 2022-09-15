@@ -120,29 +120,6 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = 
 require "user.keymaps"
 EOF
 
-highlight clear CursorLine
-highlight Normal ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight NonText ctermbg=none
-highlight SpecialKey ctermbg=none
-highlight VertSplit ctermbg=none
-highlight SignColumn ctermbg=none
-
-highlight Normal guibg=NONE ctermbg=NONE
-highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
-highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
-highlight CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
-highlight clear LineNr
-highlight clear SignColumn
-highlight clear StatusLine
-
-
-" Change Color when entering Insert Mode
-autocmd InsertEnter * set nocursorline
-
-" Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * set nocursorline
 let g:airline_power_fonts=2
 let g:airline_themes_base16_constant = 1
 let g:gruvbox_italic=1
