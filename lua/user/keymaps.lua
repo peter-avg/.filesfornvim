@@ -21,11 +21,15 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 --FZF
 keymap("n", "<leader>f", ":FZF<cr>", opts)
 
+--Go to definition
+vim.keymap.set("n", "<space>d", vim.lsp.buf.implementation, opts)
+
 keymap("n", "<leader>q", ":q<cr>", opts)
 keymap("n", "<leader>wq", ":wq<cr>", opts)
+keymap("n", "<leader>w", ":w<cr>", opts)
 
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<leader-Right>", ":vertical resize -10<CR>", opts)
+keymap("n", "<leader-Left>", ":vertical resize +10<CR>", opts)
 
 keymap("n", "<leader>t", ":tabedit<cr>", opts)
 
