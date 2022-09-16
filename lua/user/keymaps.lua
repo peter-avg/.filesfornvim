@@ -19,7 +19,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 --FZF
-keymap("n", "<leader>f", ":FZF<cr>", opts)
+keymap("n", "<leader>f", ":FZF ~<cr>", opts)
 
 --Go to definition
 vim.keymap.set("n", "<space>d", vim.lsp.buf.implementation, opts)
