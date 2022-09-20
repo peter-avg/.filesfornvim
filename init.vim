@@ -37,11 +37,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 lua <<EOF
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.java_language_server.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.pyre.setup{}
-require'lspconfig'.tsserver.setup{}
 require("nvim-autopairs").setup {}
 require('Comment').setup()
 
@@ -96,6 +91,7 @@ local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 
+require "user.lsp"
 require "user.keymaps"
 EOF
 
