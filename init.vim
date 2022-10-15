@@ -35,8 +35,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 lua <<EOF
-require "user.cmp"
 require "user.lsp"
+require "user.cmp"
 require "user.keymaps"
 EOF
 
