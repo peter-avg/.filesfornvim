@@ -32,7 +32,11 @@ keymap("n", "<leader>w", ":w<cr>", opts)
 
 keymap("n", "<leader>t", ":tabedit<cr>", opts)
 
---Indent Mode
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+--indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
