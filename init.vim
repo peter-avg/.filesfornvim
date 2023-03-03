@@ -21,6 +21,9 @@ set laststatus=2
 set nocompatible 
 
 call plug#begin()
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'williamboman/nvim-lsp-installer'
@@ -39,6 +42,7 @@ lua <<EOF
 require "user.lsp"
 require "user.cmp"
 require "user.keymaps"
+require "user.telescope"
 EOF
 
 let g:airline_power_fonts=2
