@@ -54,4 +54,7 @@ colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
 
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
 
