@@ -18,9 +18,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 --NRW
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
---FZF
-keymap("n", "<leader>f", ":FZF ~<cr>", opts)
-
 --LSP
 vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
@@ -50,3 +47,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })

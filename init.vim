@@ -43,7 +43,6 @@ require "user.lsp"
 require "user.cmp"
 require "user.keymaps"
 require "user.telescope"
-require "user.treesitter"
 EOF
 
 let g:airline_power_fonts=2
