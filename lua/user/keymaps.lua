@@ -23,24 +23,27 @@ vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
 vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
 
+--Quitting and Saving
 keymap("n", "<leader>q", ":q<cr>", opts)
 keymap("n", "<leader>wq", ":wq<cr>", opts)
 keymap("n", "<leader>w", ":w<cr>", opts)
+keymap("n", "<leader>fq", ":qa<cr>", opts)
 
+--Tabs
 keymap("n", "<leader>t", ":tabedit<cr>", opts)
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "<leader>p", [["_dP]])
+
+--Jumping Jacks 
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 
 --indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("n", "<leader>p", '"_dP', opts)
 
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)

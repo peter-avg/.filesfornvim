@@ -22,6 +22,7 @@ set nocompatible
 
 call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
+Plug 'jez/vim-better-sml'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
@@ -31,9 +32,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'  
+Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
@@ -45,12 +48,15 @@ require "user.keymaps"
 require "user.telescope"
 EOF
 
-let g:airline_power_fonts=2
-let g:airline_themes_base16_constant = 1
 let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 let g:gruvbox_italic=1
 let g:gruvbox_underline=0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme='simple'
 set bg=dark
 let g:gruvbox_transparent_bg=1
 set encoding=utf-8
