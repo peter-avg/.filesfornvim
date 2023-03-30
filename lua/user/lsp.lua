@@ -9,3 +9,5 @@ require'lspconfig'.tsserver.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.sumneko_lua.setup {}
+-- require'lspconfig'.millet.setup{}
+require'lspconfig'.sqlls.setup{}
