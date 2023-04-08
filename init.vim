@@ -38,7 +38,6 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'  
 Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 lua <<EOF
@@ -63,8 +62,5 @@ set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
-
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 

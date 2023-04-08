@@ -11,3 +11,5 @@ require'lspconfig'.html.setup{}
 require'lspconfig'.sumneko_lua.setup {}
 -- require'lspconfig'.millet.setup{}
 require'lspconfig'.sqlls.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.vimls.setup{}
