@@ -25,12 +25,17 @@ vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
 
 --Quitting and Saving
 keymap("n", "<leader>q", ":q<cr>", opts)
+keymap("n", "<leader>Q", ":q!<cr>", opts)
 keymap("n", "<leader>wq", ":wq<cr>", opts)
 keymap("n", "<leader>w", ":w<cr>", opts)
 keymap("n", "<leader>fq", ":qa<cr>", opts)
 
 --Tabs
-keymap("n", "<leader>t", ":tabedit<cr>", opts)
+keymap("n", "<leader>t", ":tabedit<CR>", opts)
+keymap("n", "<leader>vs", ":vsp<CR><C-l>", opts)
+keymap("n", "<leader>hs", ":sp<CR>", opts)
+keymap("n", "<leader>,", ":vertical resize -10<CR>", opts)
+keymap("n", "<leader>.", ":vertical resize +10<CR>", opts)
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
@@ -51,5 +56,15 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- Buffers
+keymap("n", "<leader>b", ":buffers<CR>:buffer<Space>", opts)
+keymap("n", "<leader>bn", ":bnext<CR>", opts)
+keymap("n", "<leader>bp", ":bprevious<CR>", opts)
+keymap("n", "<leader>bf", ":bfirst<CR>", opts)
+keymap("n", "<leader>bl", ":blast<CR>", opts)
+
+-- Replace word in document
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Make excecutable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
