@@ -8,7 +8,7 @@ require'lspconfig'.pyre.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.html.setup{}
-require'lspconfig'.sumneko_lua.setup {}
+require'lspconfig'.lua_ls.setup {}
 -- require'lspconfig'.millet.setup{}
 require'lspconfig'.sqlls.setup{}
 require'lspconfig'.bashls.setup{}

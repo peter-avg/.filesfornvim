@@ -35,9 +35,10 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'  
-Plug 'vim-airline/vim-airline-themes'  
+" Plug 'vim-airline/vim-airline'  
+" Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
+" Plug 'tribela/vim-transparent'
 call plug#end()
 
 lua <<EOF
@@ -51,11 +52,11 @@ let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 let g:gruvbox_italic=1
 let g:gruvbox_underline=0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme='simple'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'default'
+" let g:airline_theme='simple'
 set bg=dark
 let g:gruvbox_transparent_bg=1
 set encoding=utf-8
