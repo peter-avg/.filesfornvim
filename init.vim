@@ -38,8 +38,13 @@ Plug 'morhetz/gruvbox'
 " Plug 'vim-airline/vim-airline'  
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'tribela/vim-transparent'
 call plug#end()
+
+let g:LanguageClient_serverCommands = {
+    \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
+    \ }
 
 lua <<EOF
 require "user.lsp"
