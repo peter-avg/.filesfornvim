@@ -35,6 +35,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
+Plug 'lervag/vimtex'
 " Plug 'vim-airline/vim-airline'  
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
@@ -68,5 +69,4 @@ set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
-
 
