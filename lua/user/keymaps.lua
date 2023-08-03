@@ -15,6 +15,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+--LaTeX
+keymap("n","<leader>l",":!pdflatex % && open -a 'Safari' %:r.pdf<CR>",opts)
+
 --NRW
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
