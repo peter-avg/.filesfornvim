@@ -22,10 +22,10 @@ keymap("n", "<C-κ>", "<C-w>k", opts)
 keymap("n", "<C-λ>", "<C-w>l", opts)
 
 --LaTeX
-keymap("n","<leader>l",":!pdflatex % && open -a 'Safari' %:r.pdf<CR>",opts)
+keymap("n","<leader>l",":!latexmk -pvc -pdf<CR>",opts)
 
 --LaTeX Ελληνικά
-keymap("n","<leader>λ",":!pdflatex % && open -a 'Safari' %:r.pdf<CR>",opts)
+keymap("n","<leader>λ",":!latexmk -pvc -pdf<CR>",opts)
 
 --NRW
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
@@ -115,6 +115,7 @@ keymap("n", "<leader>bn", ":bnext<CR>", opts)
 keymap("n", "<leader>bp", ":bprevious<CR>", opts)
 keymap("n", "<leader>bf", ":bfirst<CR>", opts)
 keymap("n", "<leader>bl", ":blast<CR>", opts)
+keymap("n", "<leader>bd", ":bd<CR>", opts)
 
 -- Buffers Ελληνικά
 keymap("n", "<leader>β", ":buffers<CR>:buffer<Space>", opts)
@@ -122,6 +123,7 @@ keymap("n", "<leader>βν", ":bnext<CR>", opts)
 keymap("n", "<leader>βπ", ":bprevious<CR>", opts)
 keymap("n", "<leader>βφ", ":bfirst<CR>", opts)
 keymap("n", "<leader>βλ", ":blast<CR>", opts)
+keymap("n", "<leader>βδ", ":bd<CR>", opts)
 
 -- Replace word in document
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -130,7 +132,13 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>σ", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make excecutable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
 -- Make excecutable Ελληνικά
-vim.keymap.set("n", "<leader>χ", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>χ", "<cmd>!chmod +x %<CR>", opts)
+
+-- Grep 
+vim.keymap.set("n","<leader>g", "yiw:grep <c-r><c-f><cr>", opts)
+
+-- Grep Ελληνικά
+vim.keymap.set("n","<leader>γ", ":grep ", opts)

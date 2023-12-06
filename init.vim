@@ -21,6 +21,7 @@ let python_highlight_all=1
 syntax on 
 set laststatus=2 
 set nocompatible 
+set gp=git\ grep\ -n
 
 call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
