@@ -21,7 +21,6 @@ let python_highlight_all=1
 syntax on 
 set laststatus=2 
 set nocompatible 
-set gp=git\ grep\ -n
 
 call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
@@ -43,6 +42,7 @@ Plug 'lervag/vimtex'
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'mfussenegger/nvim-jdtls'
 " Plug 'tribela/vim-transparent'
 call plug#end()
 
