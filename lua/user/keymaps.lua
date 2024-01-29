@@ -1,4 +1,5 @@
-local opts = {noremap = true, silent = true}
+---@diagnostic disable: undefined-global
+local opts = {noremap = true, silent = true, buffer = bufnr}
 
 local term_opts = {silent = true}
 
@@ -21,12 +22,6 @@ keymap("n", "<C-ξ>", "<C-w>j", opts)
 keymap("n", "<C-κ>", "<C-w>k", opts)
 keymap("n", "<C-λ>", "<C-w>l", opts)
 
---LaTeX
-keymap("n","<leader>l",":!latexmk -pvc -pdf<CR>",opts)
-
---LaTeX Ελληνικά
-keymap("n","<leader>λ",":!latexmk -pvc -pdf<CR>",opts)
-
 --NRW
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
@@ -34,14 +29,20 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 keymap("n", "<leader>ε", ":Lex 30<cr>", opts)
 
 --LSP
-vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 --LSP Ελληνικά
-vim.keymap.set("n", "<leader>ωρρ", vim.lsp.buf.references, opts)
-vim.keymap.set("n", "<leader>ωρν", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "γΔ", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "γδ", vim.lsp.buf.definition, opts)
 vim.keymap.set("n", "<leader>ωδ", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "<leader>Δ", vim.lsp.buf.type_definition, opts)
+vim.keymap.set("n", "γρ", vim.lsp.buf.references, opts)
+vim.keymap.set("n", "<leader>ψα", vim.lsp.buf.code_action, opts)
 
 --Quitting and Saving
 keymap("n", "<leader>q", ":q<cr>", opts)
@@ -63,6 +64,8 @@ keymap("n", "<leader>vs", ":vsp<CR><C-l>", opts)
 keymap("n", "<leader>hs", ":sp<CR>", opts)
 keymap("n", "<leader>,", ":vertical resize -10<CR>", opts)
 keymap("n", "<leader>.", ":vertical resize +10<CR>", opts)
+keymap("n", "<leader>[", ":horizontal resize -10<CR>", opts)
+keymap("n", "<leader>]", ":horizontal resize +10<CR>", opts)
 
 --Tabs Ελληνικά
 keymap("n", "<leader>τ", ":tabedit<CR>", opts)
@@ -70,6 +73,8 @@ keymap("n", "<leader>ωσ", ":vsp<CR><C-l>", opts)
 keymap("n", "<leader>ησ", ":sp<CR>", opts)
 keymap("n", "<leader>,", ":vertical resize -10<CR>", opts)
 keymap("n", "<leader>.", ":vertical resize +10<CR>", opts)
+keymap("n", "<leader>[", ":horizontal resize -10<CR>", opts)
+keymap("n", "<leader>]", ":horizontal resize +10<CR>", opts)
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
@@ -136,9 +141,3 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
 -- Make excecutable Ελληνικά
 vim.keymap.set("n", "<leader>χ", "<cmd>!chmod +x %<CR>", opts)
-
--- Grep 
-vim.keymap.set("n","<leader>g", "yiw:grep <c-r><c-f><cr>", opts)
-
--- Grep Ελληνικά
-vim.keymap.set("n","<leader>γ", ":grep ", opts)

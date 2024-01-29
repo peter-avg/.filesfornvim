@@ -23,9 +23,9 @@ set laststatus=2
 set nocompatible 
 
 call plug#begin()
-Plug 'nvim-lua/plenary.nvim'
 Plug 'jez/vim-better-sml'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -54,7 +54,11 @@ lua <<EOF
 require "user.lsp"
 require "user.cmp"
 require "user.keymaps"
-require "user.telescope"
+local builtin = require('telescope.builtin')
+vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
+vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 EOF
 
 let g:gruvbox_italic=1
@@ -72,4 +76,3 @@ set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
-
