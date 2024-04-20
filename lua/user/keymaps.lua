@@ -22,6 +22,44 @@ keymap("n", "<C-ξ>", "<C-w>j", opts)
 keymap("n", "<C-κ>", "<C-w>k", opts)
 keymap("n", "<C-λ>", "<C-w>l", opts)
 
+--Quick Disable Copilot
+keymap("n", "<leader>cd", ":Copilot disable<CR>", opts)
+
+--Quick Disable Copilot Ελληνικά
+keymap("n", "<leader>ψδ", ":Copilot disable<CR>", opts)
+
+--Quick Enable Copilot
+keymap("n", "<leader>ce", ":Copilot enable<CR>", opts)
+
+--Quick Enable Copilot Ελληνικά
+keymap("n", "<leader>ψε", ":Copilot enable<CR>", opts)
+
+--Quick LSP Disable 
+keymap("n", "<leader>ad", ":LspStop<CR>", opts)
+
+--Quick LSP Disable Ελληνικά
+keymap("n", "<leader>αδ", ":LspStop<CR>", opts)
+
+--Quick LSP Enable
+keymap("n", "<leader>ae", ":LspStart<CR>", opts)
+
+--Quick LSP Enable Ελληνικά
+keymap("n", "<leader>αε", ":LspStart<CR>", opts)
+
+
+--Copilot Autocomplete
+vim.keymap.set('i', '<C-c>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
+--Copilot AutoComplete Ελληνικά
+vim.keymap.set('i', '<C-ψ>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+
 --NRW
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
@@ -62,10 +100,10 @@ keymap("n", "<leader>φ;", ":qa<cr>", opts)
 keymap("n", "<leader>t", ":tabedit<CR>", opts)
 keymap("n", "<leader>vs", ":vsp<CR><C-l>", opts)
 keymap("n", "<leader>hs", ":sp<CR>", opts)
-keymap("n", "<leader>,", ":vertical resize -10<CR>", opts)
-keymap("n", "<leader>.", ":vertical resize +10<CR>", opts)
-keymap("n", "<leader>[", ":horizontal resize -10<CR>", opts)
-keymap("n", "<leader>]", ":horizontal resize +10<CR>", opts)
+keymap("n", "<leader>,", ":vertical resize -2<CR>", opts)
+keymap("n", "<leader>.", ":vertical resize +2<CR>", opts)
+keymap("n", "<leader>[", ":horizontal resize -2<CR>", opts)
+keymap("n", "<leader>]", ":horizontal resize +2<CR>", opts)
 
 --Tabs Ελληνικά
 keymap("n", "<leader>τ", ":tabedit<CR>", opts)
@@ -113,6 +151,9 @@ keymap("x", "Ξ", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "Κ", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-ξ>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-κ>", ":move '<-2<CR>gv-gv", opts)
+
+-- Marks
+keymap("n", "<leader>m", ":marks<CR>", opts)
 
 -- Buffers
 keymap("n", "<leader>b", ":buffers<CR>:buffer<Space>", opts)

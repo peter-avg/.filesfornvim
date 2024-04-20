@@ -4,7 +4,7 @@ set relativenumber
 set hidden 
 set tabstop=4 softtabstop=4 
 set shiftwidth=4 
-set colorcolumn=100
+set colorcolumn=120
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 set expandtab 
 set smartindent 
@@ -41,14 +41,18 @@ Plug 'lervag/vimtex'
 " Plug 'vim-airline/vim-airline'  
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
+" Plug 'folke/noice.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mfussenegger/nvim-jdtls'
+" Plug 'MunifTanjim/nui.nvim'
+" Plug 'rcarriga/nvim-notify'
 " Plug 'tribela/vim-transparent'
 call plug#end()
 
 let g:LanguageClient_serverCommands = {
     \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
     \ }
+
 
 lua <<EOF
 require "user.lsp"
@@ -59,6 +63,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
 EOF
 
 let g:gruvbox_italic=1
