@@ -66,6 +66,9 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 --NRW Ελληνικά
 keymap("n", "<leader>ε", ":Lex 30<cr>", opts)
 
+--Markdown Toggle
+keymap("n", "<leader>j", ":MarkdownPreviewToggle<CR>", opts)
+
 --LSP
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -97,7 +100,9 @@ keymap("n", "<leader>ς", ":w<cr>", opts)
 keymap("n", "<leader>φ;", ":qa<cr>", opts)
 
 --Tabs
-keymap("n", "<leader>t", ":tabedit<CR>", opts)
+-- keymap("n", "<leader>t", ":tabedit<CR>", opts)
+-- do both split and terminal in one 
+keymap("n","<leader>t", ":term<CR>", opts)
 keymap("n", "<leader>vs", ":vsp<CR><C-l>", opts)
 keymap("n", "<leader>hs", ":sp<CR>", opts)
 keymap("n", "<leader>,", ":vertical resize -2<CR>", opts)

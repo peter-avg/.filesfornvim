@@ -21,9 +21,11 @@ let python_highlight_all=1
 syntax on 
 set laststatus=2 
 set nocompatible 
+let g:godot_executable = '/Applications/Godot.app/Contents/MacOS/Godot'
 
 call plug#begin()
 Plug 'jez/vim-better-sml'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -38,6 +40,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
+Plug 'habamax/vim-godot'
 " Plug 'vim-airline/vim-airline'  
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
@@ -81,3 +84,26 @@ set encoding=utf-8
 colorscheme gruvbox
 hi NonText ctermbg=NONE
 hi Normal ctermbg=none guibg =none
+
+set completeopt=menu,menuone,noselect
+
+lua << EOF
+require'lspconfig'.gdscript.setup{capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())}
+
+local cmp = require'cmp'
+
+cmp.setup({
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  }
+})
+EOF
