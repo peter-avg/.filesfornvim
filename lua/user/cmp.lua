@@ -22,7 +22,10 @@ cmp.setup {
   },
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    documentation = {
+      border = 'rounded',
+      winhighlight = 'NormalFloat:TelescopeNormal,FloatBorder:TelescopeBorder',
+    }
   },
   sources = {
     -- 'crates' is lazy loaded

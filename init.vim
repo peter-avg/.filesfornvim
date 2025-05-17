@@ -56,6 +56,14 @@ let g:LanguageClient_serverCommands = {
     \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
     \ }
 
+colorscheme tokyonight
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
+command! -nargs=1 ExportCitation execute 'read' <q-args> | execute 'silent !rm' <q-args>
+
 
 lua <<EOF
 require "user.lsp"
@@ -67,43 +75,8 @@ vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
+vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 EOF
 
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-let g:gruvbox_italic=1
-let g:gruvbox_underline=0
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#formatter = 'default'
-" let g:airline_theme='simple'
-set bg=dark
-let g:gruvbox_transparent_bg=1
-set encoding=utf-8
-colorscheme gruvbox
-hi NonText ctermbg=NONE
-hi Normal ctermbg=none guibg =none
 
-set completeopt=menu,menuone,noselect
 
-lua << EOF
-require'lspconfig'.gdscript.setup{capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())}
-
-local cmp = require'cmp'
-
-cmp.setup({
-  mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-  },
-
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }
-})
-EOF

@@ -8,7 +8,12 @@ require'lspconfig'.pyright.setup{}
 require'lspconfig'.pyre.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.cssls.setup{}
-require'lspconfig'.html.setup{}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
 require'lspconfig'.lua_ls.setup {}
 -- require'lspconfig'.millet.setup{}
 require'lspconfig'.sqlls.setup{}
@@ -17,6 +22,7 @@ require'lspconfig'.vimls.setup{}
 require'lspconfig'.golangci_lint_ls.setup{}
 require'lspconfig'.gopls.setup{}
 require'lspconfig'.jdtls.setup{}
+require'lspconfig'.biome.setup{}
 require'lspconfig'.gdscript.setup{
   filetypes = { "gd", "gdscript", "gdscript3" },
 }
