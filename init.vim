@@ -21,7 +21,6 @@ let python_highlight_all=1
 syntax on 
 set laststatus=2 
 set nocompatible 
-let g:godot_executable = '/Applications/Godot.app/Contents/MacOS/Godot'
 
 call plug#begin()
 Plug 'jez/vim-better-sml'
@@ -45,6 +44,7 @@ Plug 'habamax/vim-godot'
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
 " Plug 'folke/noice.nvim'
+Plug 'folke/tokyonight.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mfussenegger/nvim-jdtls'
 " Plug 'MunifTanjim/nui.nvim'
