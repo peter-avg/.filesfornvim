@@ -44,6 +44,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('vimls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('clangd')
+vim.lsp.enable('cmake')
 -- require'lspconfig'.rust_analyzer.setup{}
 -- require'lspconfig'.sourcekit.setup{}
 -- require'lspconfig'.clangd.setup{}

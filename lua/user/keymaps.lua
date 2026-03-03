@@ -182,8 +182,11 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Replace word in document Ελληνικά
 vim.keymap.set("n", "<leader>σ", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Replace v selection in document
+vim.keymap.set("v", "<leader>s", [[s"<Esc>p""<CR>]])
+
 -- Make excecutable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 
 -- Make excecutable Ελληνικά
-vim.keymap.set("n", "<leader>χ", "<cmd>!chmod +x %<CR>", opts)
+-- vim.keymap.set("n", "<leader>χ", "<cmd>!chmod +x %<CR>", opts)

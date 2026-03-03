@@ -4,7 +4,7 @@ set relativenumber
 set hidden 
 set tabstop=4 softtabstop=4 
 set shiftwidth=4 
-set colorcolumn=120
+set colorcolumn=79
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 set expandtab 
 set smartindent 
@@ -25,6 +25,9 @@ set nocompatible
 call plug#begin()
 Plug 'jez/vim-better-sml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -43,10 +46,12 @@ Plug 'habamax/vim-godot'
 " Plug 'vim-airline/vim-airline'  
 " Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
+Plug 'github/copilot.vim',
 " Plug 'folke/noice.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'olacin/telescope-cc.nvim'
 " Plug 'MunifTanjim/nui.nvim'
 " Plug 'rcarriga/nvim-notify'
 " Plug 'tribela/vim-transparent'
@@ -76,6 +81,7 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+
 EOF
 
 
