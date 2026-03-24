@@ -185,6 +185,9 @@ vim.keymap.set("n", "<leader>σ", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Replace v selection in document
 vim.keymap.set("v", "<leader>s", [[s"<Esc>p""<CR>]])
 
+-- Open Cheatsheet
+vim.keymap.set("n", "<leader>?", [[:Cheatsheet <CR>]])
+
 -- Make excecutable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 

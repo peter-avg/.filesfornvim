@@ -50,6 +50,8 @@ Plug 'folke/tokyonight.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'olacin/telescope-cc.nvim'
+Plug 'sudormrfbin/cheatsheet.nvim'
+Plug 'nvim-lua/popup.nvim'
 " Plug 'MunifTanjim/nui.nvim'
 " Plug 'rcarriga/nvim-notify'
 " Plug 'tribela/vim-transparent'
@@ -81,6 +83,3 @@ vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 
 EOF
-
-
-
