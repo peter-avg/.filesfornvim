@@ -26,8 +26,6 @@ call plug#begin()
 Plug 'jez/vim-better-sml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
