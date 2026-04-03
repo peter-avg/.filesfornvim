@@ -188,6 +188,9 @@ vim.keymap.set("v", "<leader>s", [[s"<Esc>p""<CR>]])
 -- Open Cheatsheet
 vim.keymap.set("n", "<leader>?", [[:Cheatsheet <CR>]])
 
+-- Claude Code
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
+
 -- Make excecutable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 

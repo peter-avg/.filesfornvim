@@ -27,6 +27,7 @@ Plug 'jez/vim-better-sml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'nvim-lua/plenary.nvim'
+Plug 'greggh/claude-code.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
@@ -75,11 +76,11 @@ require "user.lsp"
 require "user.cmp"
 require "user.keymaps"
 local builtin = require('telescope.builtin')
+require('claude-code').setup()
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-
 EOF
