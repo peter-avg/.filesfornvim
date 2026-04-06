@@ -38,3 +38,20 @@ vim.lsp.enable('vimls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('clangd')
 vim.lsp.enable('cmake')
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "erm",
+  callback = function()
+    vim.lsp.start({
+      name = "erminia-lsp",
+      cmd = { "~/Coding/Personal/erminia/target/release/erminia-lsp" },
+      root_dir = vim.fs.dirname(
+        vim.fs.find({ ".git", "*.erm" }, { upward = true })[1]
+      ),
+    })
+  end,
+})
+
+vim.filetype.add({
+  extension = { erm = "erm" },
+})
