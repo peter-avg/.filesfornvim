@@ -37,21 +37,41 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('vimls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('clangd')
-vim.lsp.enable('cmake')
 
+vim.filetype.add({
+  extension = {
+    tpp = "cpp"
+  }
+})
+
+vim.lsp.enable('cmake')
+vim.lsp.enable('latexindent')
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "erm",
+  pattern = "mlir",
   callback = function()
     vim.lsp.start({
-      name = "erminia-lsp",
-      cmd = { "~/Coding/Personal/erminia/target/release/erminia-lsp" },
+      name = "mlir-lsp-server",
+      cmd = { "mlir-lsp-server" },
       root_dir = vim.fs.dirname(
-        vim.fs.find({ ".git", "*.erm" }, { upward = true })[1]
-      ),
+        vim.fs.find({ ".git" }, { upward = true })[1]
+      ) or vim.fn.getcwd(),
     })
   end,
 })
 
 vim.filetype.add({
   extension = { erm = "erm" },
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "erm",
+  callback = function()
+    vim.lsp.start({
+      name = "erminia-lsp",
+      cmd = { vim.fn.expand("~/Coding/Personal/erminia/target/debug/erminia-lsp") },
+      root_dir = vim.fs.dirname(
+        vim.fs.find({ ".git" }, { upward = true })[1]
+      ) or vim.fn.getcwd(),
+    })
+  end,
 })
