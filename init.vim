@@ -39,6 +39,8 @@ Plug 'greggh/claude-code.nvim'
 Plug 'nvim-telescope/telescope.nvim',
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-lint'
+Plug 'stevearc/conform.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/cmp-buffer'
