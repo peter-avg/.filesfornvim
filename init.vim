@@ -4,7 +4,7 @@ set relativenumber
 set hidden 
 set tabstop=4 softtabstop=4 
 set shiftwidth=4 
-set colorcolumn=79
+set colorcolumn=100
 set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 set expandtab 
 set smartindent 
@@ -21,14 +21,22 @@ let python_highlight_all=1
 syntax on 
 set laststatus=2 
 set nocompatible 
+set noswapfile nobackup nowritebackup noundofile nomodeline
+set shada=
+
+command! PandocPreview
+      \ silent write |
+      \ execute 'silent !pandoc ' . shellescape(expand('%:p')) .
+      \   ' -f gfm -t html5 -s --toc --embed-resources --metadata title=' . shellescape(expand('%:t:r')) .
+      \   ' -o ' . shellescape('/tmp/' . expand('%:t:r') . '.html') .
+      \   ' && open -a Safari ' . shellescape('/tmp/' . expand('%:t:r') . '.html') |
+      \ redraw!
 
 call plug#begin()
-Plug 'jez/vim-better-sml'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
+Plug 'nvim-telescope/telescope.nvim',
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -40,27 +48,13 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'williamboman/mason.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'morhetz/gruvbox'
-Plug 'lervag/vimtex'
-Plug 'habamax/vim-godot'
-" Plug 'vim-airline/vim-airline'  
-" Plug 'vim-airline/vim-airline-themes'  
 Plug 'numToStr/Comment.nvim'
-Plug 'github/copilot.vim',
-" Plug 'folke/noice.nvim'
 Plug 'folke/tokyonight.nvim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'olacin/telescope-cc.nvim'
-Plug 'sudormrfbin/cheatsheet.nvim'
 Plug 'nvim-lua/popup.nvim'
-" Plug 'MunifTanjim/nui.nvim'
-" Plug 'rcarriga/nvim-notify'
-" Plug 'tribela/vim-transparent'
 call plug#end()
-
-let g:LanguageClient_serverCommands = {
-    \ 'sql': ['sql-language-server', 'up', '--method', 'stdio'],
-    \ }
 
 colorscheme tokyonight
 highlight Normal guibg=none
@@ -68,19 +62,23 @@ highlight NonText guibg=none
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
-command! -nargs=1 ExportCitation execute 'read' <q-args> | execute 'silent !rm' <q-args>
-
-
 lua <<EOF
 require "user.lsp"
 require "user.cmp"
 require "user.keymaps"
 local builtin = require('telescope.builtin')
-require('claude-code').setup()
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fs", builtin.live_grep, {})
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+require("conform").setup({
+  formatters_by_ft = {
+    -- order matters: fix -> organize imports -> format
+    python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+    ["*"] = { "trim_whitespace" },
+  },
+  format_on_save = { timeout_ms = 2000, lsp_format = "fallback" },
+})
 EOF
